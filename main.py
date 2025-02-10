@@ -1,4 +1,4 @@
-from config import ALPHA, CARACTER, NUMBER, arr
+from config import ALPHABET, CARACTER, NUMBER, arr
 import random
 import os
 import time
@@ -20,7 +20,7 @@ def insert_all(n):
         c += 1
         for i in range( n // 2):
             c += 1
-            l = random.choice(ALPHA)
+            l = random.choice(ALPHABET)
             arr.append(l)
        
         nu = random.choice(NUMBER)
@@ -31,7 +31,7 @@ def insert_all(n):
     return arr
 
 def insert_letter(n):
-    arr.extend(random.choice(ALPHA) for _ in range(n))
+    arr.extend(random.choice(ALPHABET) for _ in range(n))
     return arr
  
 def insert_number(n):
@@ -53,7 +53,6 @@ def main():
 
     while cc < 2:
         clean_terminal()
-
         print("\n -- Gere sua senha -- \n")
 
         options = {
@@ -63,13 +62,11 @@ def main():
             "c": input("Você quer que tenha caractere especial? (y/x): ")
         }
 
-        nn = options["t"]
-
         clean_terminal()
         loading_screen()
 
+        nn = options["t"]
         number = int(nn)
-
         d = number // 3
 
         if options["l"] == "y":
@@ -80,7 +77,6 @@ def main():
             insert_especial(d - 1)
 
         cc += 2
-
     password = string(arr)
     print("Sua senha gerada: ", password)
 
